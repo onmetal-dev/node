@@ -24,6 +24,7 @@ import Metal from '@onmetal/node';
 
 const metal = new Metal({
   metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
+  environment: 'development', // defaults to 'production'
 });
 
 async function main() {
@@ -45,6 +46,7 @@ import Metal from '@onmetal/node';
 
 const metal = new Metal({
   metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
+  environment: 'development', // defaults to 'production'
 });
 
 async function main() {
