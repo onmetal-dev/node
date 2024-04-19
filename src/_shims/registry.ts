@@ -42,12 +42,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import '@stainless-temp/metal/shims/${shims.kind}'\` before importing anything else from @stainless-temp/metal`,
+      `you must \`import '@onmetal/node/shims/${shims.kind}'\` before importing anything else from @onmetal/node`,
     );
   }
   if (kind) {
     throw new Error(
-      `can't \`import '@stainless-temp/metal/shims/${shims.kind}'\` after \`import '@stainless-temp/metal/shims/${kind}'\``,
+      `can't \`import '@onmetal/node/shims/${shims.kind}'\` after \`import '@onmetal/node/shims/${kind}'\``,
     );
   }
   auto = options.auto;

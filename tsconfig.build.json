@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@stainless-temp/metal/*": ["dist/src/*"],
-      "@stainless-temp/metal": ["dist/src/index.ts"],
+      "@onmetal/node/*": ["dist/src/*"],
+      "@onmetal/node": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

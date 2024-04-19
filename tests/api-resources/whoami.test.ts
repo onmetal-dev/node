@@ -1,9 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Metal from '@stainless-temp/metal';
+import Metal from '@onmetal/node';
 import { Response } from 'node-fetch';
 
-const metal = new Metal({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const metal = new Metal({
+  metalAPIKey: 'My Metal API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource whoami', () => {
   test('retrieve', async () => {

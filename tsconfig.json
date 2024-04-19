@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@stainless-temp/metal/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "@stainless-temp/metal/*": ["src/*"],
-      "@stainless-temp/metal": ["src/index.ts"],
+      "@onmetal/node/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "@onmetal/node/*": ["src/*"],
+      "@onmetal/node": ["src/index.ts"],
     },
     "noEmit": true,
 

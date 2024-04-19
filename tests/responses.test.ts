@@ -1,5 +1,5 @@
-import { createResponseHeaders } from '@stainless-temp/metal/core';
-import { Headers } from '@stainless-temp/metal/_shims/index';
+import { createResponseHeaders } from '@onmetal/node/core';
+import { Headers } from '@onmetal/node/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

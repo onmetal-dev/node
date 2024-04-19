@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from '@stainless-temp/metal/core';
-import { Blob } from '@stainless-temp/metal/_shims/index';
-import { toFile } from '@stainless-temp/metal';
+import { multipartFormRequestOptions, createForm } from '@onmetal/node/core';
+import { Blob } from '@onmetal/node/_shims/index';
+import { toFile } from '@onmetal/node';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

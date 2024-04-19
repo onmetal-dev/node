@@ -4,9 +4,9 @@ const config: JestConfigWithTsJest = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@stainless-temp/metal$': '<rootDir>/src/index.ts',
-    '^@stainless-temp/metal/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^@stainless-temp/metal/(.*)$': '<rootDir>/src/$1',
+    '^@onmetal/node$': '<rootDir>/src/index.ts',
+    '^@onmetal/node/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^@onmetal/node/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
