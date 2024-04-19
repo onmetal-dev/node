@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@stainless-temp/metal/core';
-import { APIResource } from '@stainless-temp/metal/resource';
-import * as WhoamiAPI from '@stainless-temp/metal/resources/whoami';
+import * as Core from '@onmetal/node/core';
+import { APIResource } from '@onmetal/node/resource';
+import * as WhoamiAPI from '@onmetal/node/resources/whoami';
 
 export class Whoami extends APIResource {
   retrieve(options?: Core.RequestOptions): Core.APIPromise<WhoAmI> {

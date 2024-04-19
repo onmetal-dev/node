@@ -4,9 +4,14 @@ import * as Core from './core';
 import * as Errors from './error';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from '@stainless-temp/metal/resources/index';
+import * as API from '@onmetal/node/resources/index';
 
 export interface ClientOptions {
+  /**
+   * Defaults to process.env['METAL_API_KEY'].
+   */
+  metalAPIKey?: string | undefined;
+
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
@@ -66,11 +71,14 @@ export interface ClientOptions {
 
 /** API Client for interfacing with the Metal API. */
 export class Metal extends Core.APIClient {
+  metalAPIKey: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Metal API.
    *
+   * @param {string | undefined} [opts.metalAPIKey=process.env['METAL_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['METAL_BASE_URL'] ?? http://localhost:3000] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -79,8 +87,19 @@ export class Metal extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('METAL_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({
+    baseURL = Core.readEnv('METAL_BASE_URL'),
+    metalAPIKey = Core.readEnv('METAL_API_KEY'),
+    ...opts
+  }: ClientOptions = {}) {
+    if (metalAPIKey === undefined) {
+      throw new Errors.MetalError(
+        "The METAL_API_KEY environment variable is missing or empty; either provide it, or instantiate the Metal client with an metalAPIKey option, like new Metal({ metalAPIKey: 'My Metal API Key' }).",
+      );
+    }
+
     const options: ClientOptions = {
+      metalAPIKey,
       ...opts,
       baseURL: baseURL || `http://localhost:3000`,
     };
@@ -93,6 +112,8 @@ export class Metal extends Core.APIClient {
       fetch: options.fetch,
     });
     this._options = options;
+
+    this.metalAPIKey = metalAPIKey;
   }
 
   whoami: API.Whoami = new API.Whoami(this);
@@ -106,6 +127,10 @@ export class Metal extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.metalAPIKey}` };
   }
 
   static Metal = this;

@@ -1,6 +1,6 @@
 # Metal Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/@stainless-temp/metal.svg)](https://npmjs.org/package/@stainless-temp/metal)
+[![NPM version](https://img.shields.io/npm/v/@onmetal/node.svg)](https://npmjs.org/package/@onmetal/node)
 
 This library provides convenient access to the Metal REST API from server-side TypeScript or JavaScript.
 
@@ -11,7 +11,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install @stainless-temp/metal
+npm install @onmetal/node
 ```
 
 ## Usage
@@ -20,9 +20,11 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Metal from '@stainless-temp/metal';
+import Metal from '@onmetal/node';
 
-const metal = new Metal();
+const metal = new Metal({
+  metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const whoAmI = await metal.whoami.retrieve();
@@ -39,9 +41,11 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Metal from '@stainless-temp/metal';
+import Metal from '@onmetal/node';
 
-const metal = new Metal();
+const metal = new Metal({
+  metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const whoAmI: Metal.WhoAmI = await metal.whoami.retrieve();
@@ -206,12 +210,12 @@ add the following import before your first import `from "Metal"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import '@stainless-temp/metal/shims/web';
-import Metal from '@stainless-temp/metal';
+import '@onmetal/node/shims/web';
+import Metal from '@onmetal/node';
 ```
 
-To do the inverse, add `import "@stainless-temp/metal/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/stainless-sdks/tree/main/src/_shims#readme)).
+To do the inverse, add `import "@onmetal/node/shims/node"` (which does import polyfills).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/stainless-sdks/onmetal-dev/node/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
 
@@ -220,7 +224,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import Metal from '@stainless-temp/metal';
+import Metal from '@onmetal/node';
 
 const client = new Metal({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
@@ -267,7 +271,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/@stainless-temp/metal-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/onmetal-dev/node/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
@@ -276,7 +280,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Metal from "npm:@stainless-temp/metal"`.
+- Deno v1.28.0 or higher, using `import Metal from "npm:@onmetal/node"`.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.

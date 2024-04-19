@@ -1,4 +1,4 @@
-import { APIClient } from '@stainless-temp/metal/core';
+import { APIClient } from '@onmetal/node/core';
 
 const { stringifyQuery } = APIClient.prototype as any;
 

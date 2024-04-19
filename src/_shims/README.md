@@ -1,9 +1,9 @@
 # 👋 Wondering what everything in here does?
 
-`@stainless-temp/metal` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
+`@onmetal/node` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
 edge runtimes, as well as both CommonJS (CJS) and EcmaScript Modules (ESM).
 
-To do this, `@stainless-temp/metal` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
+To do this, `@onmetal/node` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
 
 It uses [conditional exports](https://nodejs.org/api/packages.html#conditional-exports) to
 automatically select the correct shims for each environment. However, conditional exports are a fairly new
@@ -15,32 +15,32 @@ getting the wrong raw `Response` type from `.asResponse()`, for example.
 
 The user can work around these issues by manually importing one of:
 
-- `import '@stainless-temp/metal/shims/node'`
-- `import '@stainless-temp/metal/shims/web'`
+- `import '@onmetal/node/shims/node'`
+- `import '@onmetal/node/shims/web'`
 
 All of the code here in `_shims` handles selecting the automatic default shims or manual overrides.
 
 ### How it works - Runtime
 
-Runtime shims get installed by calling `setShims` exported by `@stainless-temp/metal/_shims/registry`.
+Runtime shims get installed by calling `setShims` exported by `@onmetal/node/_shims/registry`.
 
-Manually importing `@stainless-temp/metal/shims/node` or `@stainless-temp/metal/shims/web`, calls `setShims` with the respective runtime shims.
+Manually importing `@onmetal/node/shims/node` or `@onmetal/node/shims/web`, calls `setShims` with the respective runtime shims.
 
-All client code imports shims from `@stainless-temp/metal/_shims/index`, which:
+All client code imports shims from `@onmetal/node/_shims/index`, which:
 
 - checks if shims have been set manually
-- if not, calls `setShims` with the shims from `@stainless-temp/metal/_shims/auto/runtime`
-- re-exports the installed shims from `@stainless-temp/metal/_shims/registry`.
+- if not, calls `setShims` with the shims from `@onmetal/node/_shims/auto/runtime`
+- re-exports the installed shims from `@onmetal/node/_shims/registry`.
 
-`@stainless-temp/metal/_shims/auto/runtime` exports web runtime shims.
-If the `node` export condition is set, the export map replaces it with `@stainless-temp/metal/_shims/auto/runtime-node`.
+`@onmetal/node/_shims/auto/runtime` exports web runtime shims.
+If the `node` export condition is set, the export map replaces it with `@onmetal/node/_shims/auto/runtime-node`.
 
 ### How it works - Type time
 
-All client code imports shim types from `@stainless-temp/metal/_shims/index`, which selects the manual types from `@stainless-temp/metal/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `@stainless-temp/metal/_shims/auto/types`.
+All client code imports shim types from `@onmetal/node/_shims/index`, which selects the manual types from `@onmetal/node/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `@onmetal/node/_shims/auto/types`.
 
-`@stainless-temp/metal/_shims/manual-types` exports an empty namespace.
-Manually importing `@stainless-temp/metal/shims/node` or `@stainless-temp/metal/shims/web` merges declarations into this empty namespace, so they get picked up by `@stainless-temp/metal/_shims/index`.
+`@onmetal/node/_shims/manual-types` exports an empty namespace.
+Manually importing `@onmetal/node/shims/node` or `@onmetal/node/shims/web` merges declarations into this empty namespace, so they get picked up by `@onmetal/node/_shims/index`.
 
-`@stainless-temp/metal/_shims/auto/types` exports web type definitions.
-If the `node` export condition is set, the export map replaces it with `@stainless-temp/metal/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.
+`@onmetal/node/_shims/auto/types` exports web type definitions.
+If the `node` export condition is set, the export map replaces it with `@onmetal/node/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.

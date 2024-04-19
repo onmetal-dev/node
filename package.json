@@ -1,12 +1,12 @@
 {
-  "name": "@stainless-temp/metal",
+  "name": "@onmetal/node",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Metal API",
   "author": "Metal <dev-feedback@metal.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/@stainless-temp",
+  "repository": "github:stainless-sdks/onmetal-dev",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
@@ -59,8 +59,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "@stainless-temp/metal": ".",
-    "@stainless-temp/metal/*": "./src/*"
+    "@onmetal/node": ".",
+    "@onmetal/node/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {
