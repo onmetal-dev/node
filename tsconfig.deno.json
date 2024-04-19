@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["deno"],
+  "exclude": [],
+  "compilerOptions": {
+    "rootDir": "./deno",
+    "lib": ["es2020", "DOM"],
+    "paths": {
+      "@stainless-temp/metal/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "@stainless-temp/metal/*": ["deno/*"],
+      "@stainless-temp/metal": ["deno/index.ts"],
+    },
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "deno",
+    "pretty": true,
+    "sourceMap": true
+  }
+}
