@@ -71,7 +71,7 @@ export class Metal extends Core.APIClient {
   /**
    * API Client for interfacing with the Metal API.
    *
-   * @param {string} [opts.baseURL=process.env['METAL_BASE_URL'] ?? http://petstore.swagger.io/v1] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['METAL_BASE_URL'] ?? http://localhost:3000] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -82,7 +82,7 @@ export class Metal extends Core.APIClient {
   constructor({ baseURL = Core.readEnv('METAL_BASE_URL'), ...opts }: ClientOptions = {}) {
     const options: ClientOptions = {
       ...opts,
-      baseURL: baseURL || `http://petstore.swagger.io/v1`,
+      baseURL: baseURL || `http://localhost:3000`,
     };
 
     super({
@@ -95,7 +95,7 @@ export class Metal extends Core.APIClient {
     this._options = options;
   }
 
-  pets: API.Pets = new API.Pets(this);
+  whoami: API.Whoami = new API.Whoami(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -151,9 +151,8 @@ export namespace Metal {
 
   export import RequestOptions = Core.RequestOptions;
 
-  export import Pets = API.Pets;
-  export import Pet = API.Pet;
-  export import PetListParams = API.PetListParams;
+  export import Whoami = API.Whoami;
+  export import WhoAmI = API.WhoAmI;
 }
 
 export default Metal;

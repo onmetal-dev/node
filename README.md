@@ -25,9 +25,9 @@ import Metal from '@stainless-temp/metal';
 const metal = new Metal();
 
 async function main() {
-  const pet = await metal.pets.retrieve('REPLACE_ME');
+  const whoAmI = await metal.whoami.retrieve();
 
-  console.log(pet.id);
+  console.log(whoAmI.token);
 }
 
 main();
@@ -44,7 +44,7 @@ import Metal from '@stainless-temp/metal';
 const metal = new Metal();
 
 async function main() {
-  const pet: Metal.Pet = await metal.pets.retrieve('REPLACE_ME');
+  const whoAmI: Metal.WhoAmI = await metal.whoami.retrieve();
 }
 
 main();
@@ -61,7 +61,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const pet = await metal.pets.retrieve('REPLACE_ME').catch(async (err) => {
+  const whoAmI = await metal.whoami.retrieve().catch(async (err) => {
     if (err instanceof Metal.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -104,7 +104,7 @@ const metal = new Metal({
 });
 
 // Or, configure per-request:
-await metal.pets.retrieve('REPLACE_ME', {
+await metal.whoami.retrieve({
   maxRetries: 5,
 });
 ```
@@ -121,7 +121,7 @@ const metal = new Metal({
 });
 
 // Override per-request:
-await metal.pets.retrieve('REPLACE_ME', {
+await metal.whoami.retrieve({
   timeout: 5 * 1000,
 });
 ```
@@ -142,13 +142,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const metal = new Metal();
 
-const response = await metal.pets.retrieve('REPLACE_ME').asResponse();
+const response = await metal.whoami.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: pet, response: raw } = await metal.pets.retrieve('REPLACE_ME').withResponse();
+const { data: whoAmI, response: raw } = await metal.whoami.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(pet.id);
+console.log(whoAmI.token);
 ```
 
 ### Making custom/undocumented requests
@@ -252,7 +252,7 @@ const metal = new Metal({
 });
 
 // Override per-request:
-await metal.pets.retrieve('REPLACE_ME', {
+await metal.whoami.retrieve({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
