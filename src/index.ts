@@ -6,26 +6,11 @@ import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
 import * as API from '@onmetal/node/resources/index';
 
-const environments = {
-  production: 'https://www.onmetal.dev/api',
-  development: 'http://localhost:3000/api',
-};
-type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   /**
    * Defaults to process.env['METAL_API_KEY'].
    */
   metalAPIKey?: string | undefined;
-
-  /**
-   * Specifies the environment to use for the API.
-   *
-   * Each environment maps to a different base URL:
-   * - `production` corresponds to `https://www.onmetal.dev/api`
-   * - `development` corresponds to `http://localhost:3000/api`
-   */
-  environment?: Environment;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -94,7 +79,6 @@ export class Metal extends Core.APIClient {
    * API Client for interfacing with the Metal API.
    *
    * @param {string | undefined} [opts.metalAPIKey=process.env['METAL_API_KEY'] ?? undefined]
-   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['METAL_BASE_URL'] ?? https://www.onmetal.dev/api] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -117,18 +101,11 @@ export class Metal extends Core.APIClient {
     const options: ClientOptions = {
       metalAPIKey,
       ...opts,
-      baseURL,
-      environment: opts.environment ?? 'production',
+      baseURL: baseURL || `https://www.onmetal.dev/api`,
     };
 
-    if (baseURL && opts.environment) {
-      throw new Errors.MetalError(
-        'Ambiguous URL; The `baseURL` option (or METAL_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
-      );
-    }
-
     super({
-      baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURL: options.baseURL!,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
