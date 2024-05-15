@@ -117,6 +117,7 @@ export class Metal extends Core.APIClient {
   }
 
   whoami: API.Whoami = new API.Whoami(this);
+  hetznerProjects: API.HetznerProjects = new API.HetznerProjects(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -177,6 +178,12 @@ export namespace Metal {
 
   export import Whoami = API.Whoami;
   export import WhoAmI = API.WhoAmI;
+
+  export import HetznerProjects = API.HetznerProjects;
+  export import HetznerProject = API.HetznerProject;
+  export import HetznerProjectListResponse = API.HetznerProjectListResponse;
+  export import HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
+  export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
 }
 
 export default Metal;
