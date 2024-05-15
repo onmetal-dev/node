@@ -117,6 +117,7 @@ export class Metal extends Core.APIClient {
   }
 
   whoami: API.Whoami = new API.Whoami(this);
+  hetznerProjects: API.HetznerProjects = new API.HetznerProjects(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -148,6 +149,9 @@ export class Metal extends Core.APIClient {
   static InternalServerError = Errors.InternalServerError;
   static PermissionDeniedError = Errors.PermissionDeniedError;
   static UnprocessableEntityError = Errors.UnprocessableEntityError;
+
+  static toFile = Uploads.toFile;
+  static fileFromPath = Uploads.fileFromPath;
 }
 
 export const {
@@ -170,14 +174,16 @@ export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Metal {
-  // Helper functions
-  export import toFile = Uploads.toFile;
-  export import fileFromPath = Uploads.fileFromPath;
-
   export import RequestOptions = Core.RequestOptions;
 
   export import Whoami = API.Whoami;
   export import WhoAmI = API.WhoAmI;
+
+  export import HetznerProjects = API.HetznerProjects;
+  export import HetznerProject = API.HetznerProject;
+  export import HetznerProjectListResponse = API.HetznerProjectListResponse;
+  export import HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
+  export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
 }
 
 export default Metal;
