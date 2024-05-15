@@ -20,13 +20,13 @@ export interface WhoAmI {
 
 export namespace WhoAmI {
   export interface Team {
-    id: number;
+    id: string;
 
     clerkId: string;
 
     createdAt: string;
 
-    creatorId: number | null;
+    creatorId: string;
 
     name: string;
 
@@ -34,7 +34,7 @@ export namespace WhoAmI {
   }
 
   export interface User {
-    id: number;
+    id: string;
 
     clerkId: string;
 
