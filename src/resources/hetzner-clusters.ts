@@ -85,8 +85,6 @@ export type HetznerClusterDeleteResponse = unknown;
 export interface HetznerClusterCreateParams {
   location: 'fsn1' | 'nbg1' | 'hel1' | 'ash' | 'hil';
 
-  name: string;
-
   nodeGroups: Array<HetznerClusterCreateParams.NodeGroup>;
 
   teamId: string;
