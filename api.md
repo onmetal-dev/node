@@ -22,3 +22,18 @@ Methods:
 - <code title="get /hetzner/projects/{projectId}">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">retrieve</a>(projectId) -> HetznerProject</code>
 - <code title="get /hetzner/projects">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">list</a>() -> HetznerProjectListResponse</code>
 - <code title="delete /hetzner/projects/{projectId}">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">delete</a>(projectId) -> unknown</code>
+
+# HetznerClusters
+
+Types:
+
+- <code><a href="./src/resources/hetzner-clusters.ts">HetznerCluster</a></code>
+- <code><a href="./src/resources/hetzner-clusters.ts">HetznerClusterListResponse</a></code>
+- <code><a href="./src/resources/hetzner-clusters.ts">HetznerClusterDeleteResponse</a></code>
+
+Methods:
+
+- <code title="put /hetzner/clusters/{clusterId}">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">create</a>(clusterId, { ...params }) -> HetznerCluster</code>
+- <code title="get /hetzner/clusters/{clusterId}">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">retrieve</a>(clusterId) -> HetznerCluster</code>
+- <code title="get /hetzner/clusters">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">list</a>() -> HetznerClusterListResponse</code>
+- <code title="delete /hetzner/clusters/{clusterId}">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">delete</a>(clusterId) -> unknown</code>
