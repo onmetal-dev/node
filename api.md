@@ -22,3 +22,5 @@ Methods:
 - <code title="get /hetzner/projects/{projectId}">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">retrieve</a>(projectId) -> HetznerProject</code>
 - <code title="get /hetzner/projects">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">list</a>() -> HetznerProjectListResponse</code>
 - <code title="delete /hetzner/projects/{projectId}">client.hetznerProjects.<a href="./src/resources/hetzner-projects.ts">delete</a>(projectId) -> unknown</code>
+
+# HetznerClusters
