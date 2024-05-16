@@ -1,6 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { HetznerClusters } from './hetzner-clusters';
+export {
+  HetznerCluster,
+  HetznerClusterListResponse,
+  HetznerClusterDeleteResponse,
+  HetznerClusterCreateParams,
+  HetznerClusters,
+} from './hetzner-clusters';
 export {
   HetznerProject,
   HetznerProjectListResponse,
