@@ -11,21 +11,14 @@ const metal = new Metal({
 describe('resource hetznerClusters', () => {
   test('create: only required params', async () => {
     const responsePromise = metal.hetznerClusters.create('3OHY5rQEfrc1vOpFrJ9q3r', {
-      cidr: 'string',
-      creatorId: 'string',
-      hetznerProjectId: 'string',
-      k8sVersion: 'string',
       location: 'fsn1',
       name: 'string',
-      networkZone: 'eu-central',
       nodeGroups: [
-        { type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
-        { type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
-        { type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
+        { type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
+        { type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
+        { type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
       ],
-      status: 'creating',
       teamId: 'string',
-      vanityName: 'string',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -38,21 +31,14 @@ describe('resource hetznerClusters', () => {
 
   test('create: required and optional params', async () => {
     const response = await metal.hetznerClusters.create('3OHY5rQEfrc1vOpFrJ9q3r', {
-      cidr: 'string',
-      creatorId: 'string',
-      hetznerProjectId: 'string',
-      k8sVersion: 'string',
       location: 'fsn1',
       name: 'string',
-      networkZone: 'eu-central',
       nodeGroups: [
-        { id: 'string', type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
-        { id: 'string', type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
-        { id: 'string', type: 'all', instanceType: 'cpx11', minNodes: 0, maxNodes: 0 },
+        { id: 'string', type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
+        { id: 'string', type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
+        { id: 'string', type: 'all', instanceType: 'cax11', minNodes: 0, maxNodes: 0 },
       ],
-      status: 'creating',
       teamId: 'string',
-      vanityName: 'string',
       id: 'string',
     });
   });

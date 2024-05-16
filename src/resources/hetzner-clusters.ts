@@ -29,8 +29,6 @@ export class HetznerClusters extends APIResource {
 export interface HetznerCluster {
   id: string;
 
-  cidr: string;
-
   clusterctlTemplate: string | null;
 
   clusterctlVersion: string | null;
@@ -58,8 +56,6 @@ export interface HetznerCluster {
   teamId: string;
 
   updatedAt: string;
-
-  vanityName: string;
 }
 
 export namespace HetznerCluster {
@@ -70,7 +66,7 @@ export namespace HetznerCluster {
 
     createdAt: string;
 
-    instanceType: 'cpx11' | 'cpx21' | 'cpx31' | 'cpx41' | 'cpx51' | 'cax11' | 'cax21' | 'cax31' | 'cax41';
+    instanceType: 'cax11' | 'cax21' | 'cax31' | 'cax41';
 
     maxNodes: number;
 
@@ -87,34 +83,20 @@ export type HetznerClusterListResponse = Array<HetznerCluster>;
 export type HetznerClusterDeleteResponse = unknown;
 
 export interface HetznerClusterCreateParams {
-  cidr: string;
-
-  creatorId: string;
-
-  hetznerProjectId: string;
-
-  k8sVersion: string;
-
   location: 'fsn1' | 'nbg1' | 'hel1' | 'ash' | 'hil';
 
   name: string;
 
-  networkZone: 'eu-central' | 'us-east' | 'us-west';
-
   nodeGroups: Array<HetznerClusterCreateParams.NodeGroup>;
 
-  status: 'creating' | 'initializing' | 'running' | 'updating' | 'destroying' | 'destroyed' | 'error';
-
   teamId: string;
-
-  vanityName: string;
 
   id?: string;
 }
 
 export namespace HetznerClusterCreateParams {
   export interface NodeGroup {
-    instanceType: 'cpx11' | 'cpx21' | 'cpx31' | 'cpx41' | 'cpx51' | 'cax11' | 'cax21' | 'cax31' | 'cax41';
+    instanceType: 'cax11' | 'cax21' | 'cax31' | 'cax41';
 
     maxNodes: number;
 
