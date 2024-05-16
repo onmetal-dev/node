@@ -187,6 +187,10 @@ export namespace Metal {
   export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
 
   export import HetznerClusters = API.HetznerClusters;
+  export import HetznerCluster = API.HetznerCluster;
+  export import HetznerClusterListResponse = API.HetznerClusterListResponse;
+  export import HetznerClusterDeleteResponse = API.HetznerClusterDeleteResponse;
+  export import HetznerClusterCreateParams = API.HetznerClusterCreateParams;
 }
 
 export default Metal;
