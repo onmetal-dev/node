@@ -201,7 +201,7 @@ export namespace Metal {
   export import ApplicationCreateParams = API.ApplicationCreateParams;
 
   export import Teams = API.Teams;
-  export import TeamRetrieveResponse = API.TeamRetrieveResponse;
+  export import Team = API.Team;
   export import TeamListResponse = API.TeamListResponse;
 }
 
