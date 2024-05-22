@@ -57,10 +57,10 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/teams.ts">TeamRetrieveResponse</a></code>
+- <code><a href="./src/resources/teams.ts">Team</a></code>
 - <code><a href="./src/resources/teams.ts">TeamListResponse</a></code>
 
 Methods:
 
-- <code title="get /teams/{teamId}">client.teams.<a href="./src/resources/teams.ts">retrieve</a>(teamId) -> TeamRetrieveResponse</code>
+- <code title="get /teams/{teamId}">client.teams.<a href="./src/resources/teams.ts">retrieve</a>(teamId) -> Team</code>
 - <code title="get /teams">client.teams.<a href="./src/resources/teams.ts">list</a>() -> TeamListResponse</code>

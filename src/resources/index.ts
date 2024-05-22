@@ -21,5 +21,5 @@ export {
   HetznerProjectCreateParams,
   HetznerProjects,
 } from './hetzner-projects';
-export { TeamRetrieveResponse, TeamListResponse, Teams } from './teams';
+export { Team, TeamListResponse, Teams } from './teams';
 export { WhoAmI, Whoami } from './whoami';
