@@ -37,3 +37,18 @@ Methods:
 - <code title="get /hetzner/clusters/{clusterId}">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">retrieve</a>(clusterId) -> HetznerCluster</code>
 - <code title="get /hetzner/clusters">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">list</a>() -> HetznerClusterListResponse</code>
 - <code title="delete /hetzner/clusters/{clusterId}">client.hetznerClusters.<a href="./src/resources/hetzner-clusters.ts">delete</a>(clusterId) -> unknown</code>
+
+# Applications
+
+Types:
+
+- <code><a href="./src/resources/applications.ts">Application</a></code>
+- <code><a href="./src/resources/applications.ts">ApplicationListResponse</a></code>
+- <code><a href="./src/resources/applications.ts">ApplicationDeleteResponse</a></code>
+
+Methods:
+
+- <code title="put /applications/{applicationId}">client.applications.<a href="./src/resources/applications.ts">create</a>(applicationId, { ...params }) -> Application</code>
+- <code title="get /applications/{applicationId}">client.applications.<a href="./src/resources/applications.ts">retrieve</a>(applicationId) -> Application</code>
+- <code title="get /applications">client.applications.<a href="./src/resources/applications.ts">list</a>() -> ApplicationListResponse</code>
+- <code title="delete /applications/{applicationId}">client.applications.<a href="./src/resources/applications.ts">delete</a>(applicationId) -> unknown</code>
