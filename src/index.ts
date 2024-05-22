@@ -120,6 +120,7 @@ export class Metal extends Core.APIClient {
   hetznerProjects: API.HetznerProjects = new API.HetznerProjects(this);
   hetznerClusters: API.HetznerClusters = new API.HetznerClusters(this);
   applications: API.Applications = new API.Applications(this);
+  teams: API.Teams = new API.Teams(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -198,6 +199,10 @@ export namespace Metal {
   export import ApplicationListResponse = API.ApplicationListResponse;
   export import ApplicationDeleteResponse = API.ApplicationDeleteResponse;
   export import ApplicationCreateParams = API.ApplicationCreateParams;
+
+  export import Teams = API.Teams;
+  export import TeamRetrieveResponse = API.TeamRetrieveResponse;
+  export import TeamListResponse = API.TeamListResponse;
 }
 
 export default Metal;
