@@ -5,7 +5,7 @@ import { APIResource } from '@onmetal/node/resource';
 import * as TeamsAPI from '@onmetal/node/resources/teams';
 
 export class Teams extends APIResource {
-  retrieve(teamId: string, options?: Core.RequestOptions): Core.APIPromise<TeamRetrieveResponse> {
+  retrieve(teamId: string, options?: Core.RequestOptions): Core.APIPromise<Team> {
     return this._client.get(`/teams/${teamId}`, options);
   }
 
@@ -14,7 +14,7 @@ export class Teams extends APIResource {
   }
 }
 
-export interface TeamRetrieveResponse {
+export interface Team {
   id: string;
 
   clerkId: string;
@@ -28,25 +28,9 @@ export interface TeamRetrieveResponse {
   updatedAt: string;
 }
 
-export type TeamListResponse = Array<TeamListResponse.TeamListResponseItem>;
-
-export namespace TeamListResponse {
-  export interface TeamListResponseItem {
-    id: string;
-
-    clerkId: string;
-
-    createdAt: string;
-
-    creatorId: string;
-
-    name: string;
-
-    updatedAt: string;
-  }
-}
+export type TeamListResponse = Array<Team>;
 
 export namespace Teams {
-  export import TeamRetrieveResponse = TeamsAPI.TeamRetrieveResponse;
+  export import Team = TeamsAPI.Team;
   export import TeamListResponse = TeamsAPI.TeamListResponse;
 }
