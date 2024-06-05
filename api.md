@@ -53,6 +53,19 @@ Methods:
 - <code title="get /applications">client.applications.<a href="./src/resources/applications.ts">list</a>() -> ApplicationListResponse</code>
 - <code title="delete /applications/{applicationId}">client.applications.<a href="./src/resources/applications.ts">delete</a>(applicationId) -> unknown</code>
 
+# Environments
+
+Types:
+
+- <code><a href="./src/resources/environments.ts">Environment</a></code>
+- <code><a href="./src/resources/environments.ts">EnvironmentListResponse</a></code>
+
+Methods:
+
+- <code title="put /environments/{environmentId}">client.environments.<a href="./src/resources/environments.ts">create</a>(environmentId, { ...params }) -> Environment</code>
+- <code title="get /environments/{environmentId}">client.environments.<a href="./src/resources/environments.ts">retrieve</a>(environmentId) -> Environment</code>
+- <code title="get /environments">client.environments.<a href="./src/resources/environments.ts">list</a>({ ...params }) -> EnvironmentListResponse</code>
+
 # Teams
 
 Types:
@@ -64,3 +77,13 @@ Methods:
 
 - <code title="get /teams/{teamId}">client.teams.<a href="./src/resources/teams.ts">retrieve</a>(teamId) -> Team</code>
 - <code title="get /teams">client.teams.<a href="./src/resources/teams.ts">list</a>() -> TeamListResponse</code>
+
+# Up
+
+Types:
+
+- <code><a href="./src/resources/up.ts">UpCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /up">client.up.<a href="./src/resources/up.ts">create</a>({ ...params }) -> string</code>

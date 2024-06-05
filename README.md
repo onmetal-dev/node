@@ -1,6 +1,6 @@
 # Metal Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/@onmetal/node.svg)](https://npmjs.org/package/@onmetal/node)
+[![NPM version](https://img.shields.io/npm/v/@onmetal/node.svg)](https://npmjs.org/package/@onmetal/node) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@onmetal/node)
 
 This library provides convenient access to the Metal REST API from server-side TypeScript or JavaScript.
 
