@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Metal from '@onmetal/node';
+import Metal, { toFile } from '@onmetal/node';
 import { Response } from 'node-fetch';
 
 const metal = new Metal({
@@ -12,7 +12,7 @@ describe('resource up', () => {
   test('create: only required params', async () => {
     const responsePromise = metal.up.create({
       appName: 'my-app',
-      archive: {},
+      archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
       envName: 'development',
       teamId: '3OHY5rQEfrc1vOpFrJ9q3r',
     });
@@ -28,7 +28,7 @@ describe('resource up', () => {
   test('create: required and optional params', async () => {
     const response = await metal.up.create({
       appName: 'my-app',
-      archive: {},
+      archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
       envName: 'development',
       teamId: '3OHY5rQEfrc1vOpFrJ9q3r',
     });
