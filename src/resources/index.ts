@@ -8,6 +8,13 @@ export {
   Applications,
 } from './applications';
 export {
+  Environment,
+  EnvironmentListResponse,
+  EnvironmentCreateParams,
+  EnvironmentListParams,
+  Environments,
+} from './environments';
+export {
   HetznerCluster,
   HetznerClusterListResponse,
   HetznerClusterDeleteResponse,
@@ -22,4 +29,5 @@ export {
   HetznerProjects,
 } from './hetzner-projects';
 export { Team, TeamListResponse, Teams } from './teams';
+export { UpCreateResponse, UpCreateParams, Up } from './up';
 export { WhoAmI, Whoami } from './whoami';
