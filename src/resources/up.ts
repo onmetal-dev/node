@@ -3,7 +3,7 @@
 import * as Core from '@onmetal/node/core';
 import { APIResource } from '@onmetal/node/resource';
 import * as UpAPI from '@onmetal/node/resources/up';
-import { multipartFormRequestOptions } from '@onmetal/node/core';
+import { type Uploadable, multipartFormRequestOptions } from '@onmetal/node/core';
 
 export class Up extends APIResource {
   create(body: UpCreateParams, options?: Core.RequestOptions): Core.APIPromise<string> {
@@ -23,7 +23,7 @@ export type UpCreateResponse = string;
 export interface UpCreateParams {
   appName: string;
 
-  archive: unknown;
+  archive: Uploadable;
 
   envName: string;
 
