@@ -21,11 +21,11 @@ export class Up extends APIResource {
 export type UpCreateResponse = string;
 
 export interface UpCreateParams {
-  appName: string;
+  appId: string;
 
   archive: Uploadable;
 
-  envName: string;
+  envId: string;
 
   teamId: string;
 }
