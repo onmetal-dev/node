@@ -11,9 +11,9 @@ const metal = new Metal({
 describe('resource up', () => {
   test('create: only required params', async () => {
     const responsePromise = metal.up.create({
-      appName: 'my-app',
+      appId: '3OHY5rQEfrc1vOpFrJ9q3r',
       archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      envName: 'development',
+      envId: '3OHY5rQEfrc1vOpFrJ9q3r',
       teamId: '3OHY5rQEfrc1vOpFrJ9q3r',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -27,9 +27,9 @@ describe('resource up', () => {
 
   test('create: required and optional params', async () => {
     const response = await metal.up.create({
-      appName: 'my-app',
+      appId: '3OHY5rQEfrc1vOpFrJ9q3r',
       archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      envName: 'development',
+      envId: '3OHY5rQEfrc1vOpFrJ9q3r',
       teamId: '3OHY5rQEfrc1vOpFrJ9q3r',
     });
   });
