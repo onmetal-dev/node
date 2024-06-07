@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2024-06-07)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Features
+
+* **api:** update via SDK Studio ([#31](https://github.com/onmetal-dev/node/issues/31)) ([748691a](https://github.com/onmetal-dev/node/commit/748691aac70de03fe88420a1f11a8b03255569ce))
+
 ## 0.1.0-alpha.9 (2024-06-05)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
