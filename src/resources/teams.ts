@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as TeamsAPI from '@onmetal/node/resources/teams';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as TeamsAPI from './teams';
 
 export class Teams extends APIResource {
   retrieve(teamId: string, options?: Core.RequestOptions): Core.APIPromise<Team> {
