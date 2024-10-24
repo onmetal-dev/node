@@ -3,14 +3,14 @@
 import Metal, { toFile } from '@onmetal/node';
 import { Response } from 'node-fetch';
 
-const metal = new Metal({
+const client = new Metal({
   metalAPIKey: 'My Metal API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource up', () => {
   test('create: only required params', async () => {
-    const responsePromise = metal.up.create({
+    const responsePromise = client.up.create({
       appId: '3OHY5rQEfrc1vOpFrJ9q3r',
       archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
       envId: '3OHY5rQEfrc1vOpFrJ9q3r',
@@ -26,7 +26,7 @@ describe('resource up', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await metal.up.create({
+    const response = await client.up.create({
       appId: '3OHY5rQEfrc1vOpFrJ9q3r',
       archive: await toFile(Buffer.from('# my file contents'), 'README.md'),
       envId: '3OHY5rQEfrc1vOpFrJ9q3r',

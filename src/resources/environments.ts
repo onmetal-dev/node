@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import { isRequestOptions } from '@onmetal/node/core';
-import * as EnvironmentsAPI from '@onmetal/node/resources/environments';
+import { APIResource } from '../resource';
+import { isRequestOptions } from '../core';
+import * as Core from '../core';
+import * as EnvironmentsAPI from './environments';
 
 export class Environments extends APIResource {
   create(
