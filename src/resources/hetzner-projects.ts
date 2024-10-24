@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as HetznerProjectsAPI from '@onmetal/node/resources/hetzner-projects';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as HetznerProjectsAPI from './hetzner-projects';
 
 export class HetznerProjects extends APIResource {
   create(

@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from '@onmetal/node/resources/index';
+import { type Agent } from './_shims/index';
+import * as Core from './core';
+import * as API from './resources/index';
 
 export interface ClientOptions {
   /**
@@ -69,7 +69,9 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Metal API. */
+/**
+ * API Client for interfacing with the Metal API.
+ */
 export class Metal extends Core.APIClient {
   metalAPIKey: string;
 
@@ -111,6 +113,7 @@ export class Metal extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.metalAPIKey = metalAPIKey;
@@ -140,6 +143,7 @@ export class Metal extends Core.APIClient {
   }
 
   static Metal = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static MetalError = Errors.MetalError;
   static APIError = Errors.APIError;
