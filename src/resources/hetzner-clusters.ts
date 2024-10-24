@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as HetznerClustersAPI from '@onmetal/node/resources/hetzner-clusters';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as HetznerClustersAPI from './hetzner-clusters';
 
 export class HetznerClusters extends APIResource {
   create(

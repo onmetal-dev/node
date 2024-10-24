@@ -3,14 +3,14 @@
 import Metal from '@onmetal/node';
 import { Response } from 'node-fetch';
 
-const metal = new Metal({
+const client = new Metal({
   metalAPIKey: 'My Metal API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource teams', () => {
   test('retrieve', async () => {
-    const responsePromise = metal.teams.retrieve('3OHY5rQEfrc1vOpFrJ9q3r');
+    const responsePromise = client.teams.retrieve('3OHY5rQEfrc1vOpFrJ9q3r');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,12 +23,12 @@ describe('resource teams', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      metal.teams.retrieve('3OHY5rQEfrc1vOpFrJ9q3r', { path: '/_stainless_unknown_path' }),
+      client.teams.retrieve('3OHY5rQEfrc1vOpFrJ9q3r', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Metal.NotFoundError);
   });
 
   test('list', async () => {
-    const responsePromise = metal.teams.list();
+    const responsePromise = client.teams.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -40,6 +40,8 @@ describe('resource teams', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(metal.teams.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(Metal.NotFoundError);
+    await expect(client.teams.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Metal.NotFoundError,
+    );
   });
 });
