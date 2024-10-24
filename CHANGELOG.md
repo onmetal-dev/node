@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2024-10-24)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Features
+
+* **api:** api update ([#34](https://github.com/onmetal-dev/node/issues/34)) ([9c465f5](https://github.com/onmetal-dev/node/commit/9c465f5c6bddb311df82a9e12e8a46563b062970))
+
 ## 0.1.0-alpha.10 (2024-06-07)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
