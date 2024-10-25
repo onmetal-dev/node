@@ -107,8 +107,8 @@ export namespace HetznerClusterCreateParams {
 }
 
 export namespace HetznerClusters {
-  export type HetznerCluster = HetznerClustersAPI.HetznerCluster;
-  export type HetznerClusterListResponse = HetznerClustersAPI.HetznerClusterListResponse;
-  export type HetznerClusterDeleteResponse = HetznerClustersAPI.HetznerClusterDeleteResponse;
-  export type HetznerClusterCreateParams = HetznerClustersAPI.HetznerClusterCreateParams;
+  export import HetznerCluster = HetznerClustersAPI.HetznerCluster;
+  export import HetznerClusterListResponse = HetznerClustersAPI.HetznerClusterListResponse;
+  export import HetznerClusterDeleteResponse = HetznerClustersAPI.HetznerClusterDeleteResponse;
+  export import HetznerClusterCreateParams = HetznerClustersAPI.HetznerClusterCreateParams;
 }
