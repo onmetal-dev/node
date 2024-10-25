@@ -79,8 +79,8 @@ export interface HetznerProjectCreateParams {
 }
 
 export namespace HetznerProjects {
-  export import HetznerProject = HetznerProjectsAPI.HetznerProject;
-  export import HetznerProjectListResponse = HetznerProjectsAPI.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = HetznerProjectsAPI.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = HetznerProjectsAPI.HetznerProjectCreateParams;
+  export type HetznerProject = HetznerProjectsAPI.HetznerProject;
+  export type HetznerProjectListResponse = HetznerProjectsAPI.HetznerProjectListResponse;
+  export type HetznerProjectDeleteResponse = HetznerProjectsAPI.HetznerProjectDeleteResponse;
+  export type HetznerProjectCreateParams = HetznerProjectsAPI.HetznerProjectCreateParams;
 }

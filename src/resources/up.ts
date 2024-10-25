@@ -30,6 +30,6 @@ export interface UpCreateParams {
 }
 
 export namespace Up {
-  export import UpCreateResponse = UpAPI.UpCreateResponse;
-  export import UpCreateParams = UpAPI.UpCreateParams;
+  export type UpCreateResponse = UpAPI.UpCreateResponse;
+  export type UpCreateParams = UpAPI.UpCreateParams;
 }
