@@ -31,6 +31,6 @@ export interface Team {
 export type TeamListResponse = Array<Team>;
 
 export namespace Teams {
-  export import Team = TeamsAPI.Team;
-  export import TeamListResponse = TeamsAPI.TeamListResponse;
+  export type Team = TeamsAPI.Team;
+  export type TeamListResponse = TeamsAPI.TeamListResponse;
 }

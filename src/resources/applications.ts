@@ -55,8 +55,8 @@ export interface ApplicationCreateParams {
 }
 
 export namespace Applications {
-  export import Application = ApplicationsAPI.Application;
-  export import ApplicationListResponse = ApplicationsAPI.ApplicationListResponse;
-  export import ApplicationDeleteResponse = ApplicationsAPI.ApplicationDeleteResponse;
-  export import ApplicationCreateParams = ApplicationsAPI.ApplicationCreateParams;
+  export type Application = ApplicationsAPI.Application;
+  export type ApplicationListResponse = ApplicationsAPI.ApplicationListResponse;
+  export type ApplicationDeleteResponse = ApplicationsAPI.ApplicationDeleteResponse;
+  export type ApplicationCreateParams = ApplicationsAPI.ApplicationCreateParams;
 }
