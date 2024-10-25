@@ -64,8 +64,8 @@ export interface EnvironmentListParams {
 }
 
 export namespace Environments {
-  export type Environment = EnvironmentsAPI.Environment;
-  export type EnvironmentListResponse = EnvironmentsAPI.EnvironmentListResponse;
-  export type EnvironmentCreateParams = EnvironmentsAPI.EnvironmentCreateParams;
-  export type EnvironmentListParams = EnvironmentsAPI.EnvironmentListParams;
+  export import Environment = EnvironmentsAPI.Environment;
+  export import EnvironmentListResponse = EnvironmentsAPI.EnvironmentListResponse;
+  export import EnvironmentCreateParams = EnvironmentsAPI.EnvironmentCreateParams;
+  export import EnvironmentListParams = EnvironmentsAPI.EnvironmentListParams;
 }

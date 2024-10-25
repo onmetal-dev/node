@@ -55,5 +55,5 @@ export namespace WhoAmI {
 }
 
 export namespace Whoami {
-  export type WhoAmI = WhoamiAPI.WhoAmI;
+  export import WhoAmI = WhoamiAPI.WhoAmI;
 }
