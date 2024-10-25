@@ -183,42 +183,42 @@ export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Metal {
-  export import RequestOptions = Core.RequestOptions;
+  export type RequestOptions = Core.RequestOptions;
 
   export import Whoami = API.Whoami;
-  export import WhoAmI = API.WhoAmI;
+  export type WhoAmI = API.WhoAmI;
 
   export import HetznerProjects = API.HetznerProjects;
-  export import HetznerProject = API.HetznerProject;
-  export import HetznerProjectListResponse = API.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
+  export type HetznerProject = API.HetznerProject;
+  export type HetznerProjectListResponse = API.HetznerProjectListResponse;
+  export type HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
+  export type HetznerProjectCreateParams = API.HetznerProjectCreateParams;
 
   export import HetznerClusters = API.HetznerClusters;
-  export import HetznerCluster = API.HetznerCluster;
-  export import HetznerClusterListResponse = API.HetznerClusterListResponse;
-  export import HetznerClusterDeleteResponse = API.HetznerClusterDeleteResponse;
-  export import HetznerClusterCreateParams = API.HetznerClusterCreateParams;
+  export type HetznerCluster = API.HetznerCluster;
+  export type HetznerClusterListResponse = API.HetznerClusterListResponse;
+  export type HetznerClusterDeleteResponse = API.HetznerClusterDeleteResponse;
+  export type HetznerClusterCreateParams = API.HetznerClusterCreateParams;
 
   export import Applications = API.Applications;
-  export import Application = API.Application;
-  export import ApplicationListResponse = API.ApplicationListResponse;
-  export import ApplicationDeleteResponse = API.ApplicationDeleteResponse;
-  export import ApplicationCreateParams = API.ApplicationCreateParams;
+  export type Application = API.Application;
+  export type ApplicationListResponse = API.ApplicationListResponse;
+  export type ApplicationDeleteResponse = API.ApplicationDeleteResponse;
+  export type ApplicationCreateParams = API.ApplicationCreateParams;
 
   export import Environments = API.Environments;
-  export import Environment = API.Environment;
-  export import EnvironmentListResponse = API.EnvironmentListResponse;
-  export import EnvironmentCreateParams = API.EnvironmentCreateParams;
-  export import EnvironmentListParams = API.EnvironmentListParams;
+  export type Environment = API.Environment;
+  export type EnvironmentListResponse = API.EnvironmentListResponse;
+  export type EnvironmentCreateParams = API.EnvironmentCreateParams;
+  export type EnvironmentListParams = API.EnvironmentListParams;
 
   export import Teams = API.Teams;
-  export import Team = API.Team;
-  export import TeamListResponse = API.TeamListResponse;
+  export type Team = API.Team;
+  export type TeamListResponse = API.TeamListResponse;
 
   export import Up = API.Up;
-  export import UpCreateResponse = API.UpCreateResponse;
-  export import UpCreateParams = API.UpCreateParams;
+  export type UpCreateResponse = API.UpCreateResponse;
+  export type UpCreateParams = API.UpCreateParams;
 }
 
 export default Metal;
