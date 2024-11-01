@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as HetznerProjectsAPI from './hetzner-projects';
 
 export class HetznerProjects extends APIResource {
   create(
@@ -78,9 +77,11 @@ export interface HetznerProjectCreateParams {
   sshKeyName?: string | null;
 }
 
-export namespace HetznerProjects {
-  export import HetznerProject = HetznerProjectsAPI.HetznerProject;
-  export import HetznerProjectListResponse = HetznerProjectsAPI.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = HetznerProjectsAPI.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = HetznerProjectsAPI.HetznerProjectCreateParams;
+export declare namespace HetznerProjects {
+  export {
+    type HetznerProject as HetznerProject,
+    type HetznerProjectListResponse as HetznerProjectListResponse,
+    type HetznerProjectDeleteResponse as HetznerProjectDeleteResponse,
+    type HetznerProjectCreateParams as HetznerProjectCreateParams,
+  };
 }
