@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as TeamsAPI from './teams';
 
 export class Teams extends APIResource {
   retrieve(teamId: string, options?: Core.RequestOptions): Core.APIPromise<Team> {
@@ -30,7 +29,6 @@ export interface Team {
 
 export type TeamListResponse = Array<Team>;
 
-export namespace Teams {
-  export import Team = TeamsAPI.Team;
-  export import TeamListResponse = TeamsAPI.TeamListResponse;
+export declare namespace Teams {
+  export { type Team as Team, type TeamListResponse as TeamListResponse };
 }

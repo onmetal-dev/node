@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as ApplicationsAPI from './applications';
 
 export class Applications extends APIResource {
   create(
@@ -54,9 +53,11 @@ export interface ApplicationCreateParams {
   id?: string;
 }
 
-export namespace Applications {
-  export import Application = ApplicationsAPI.Application;
-  export import ApplicationListResponse = ApplicationsAPI.ApplicationListResponse;
-  export import ApplicationDeleteResponse = ApplicationsAPI.ApplicationDeleteResponse;
-  export import ApplicationCreateParams = ApplicationsAPI.ApplicationCreateParams;
+export declare namespace Applications {
+  export {
+    type Application as Application,
+    type ApplicationListResponse as ApplicationListResponse,
+    type ApplicationDeleteResponse as ApplicationDeleteResponse,
+    type ApplicationCreateParams as ApplicationCreateParams,
+  };
 }

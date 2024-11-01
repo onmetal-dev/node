@@ -11,7 +11,7 @@
     "paths": {
       "@onmetal/node/_shims/auto/*": ["src/_shims/auto/*-node"],
       "@onmetal/node/*": ["src/*"],
-      "@onmetal/node": ["src/index.ts"],
+      "@onmetal/node": ["src/index.ts"]
     },
     "noEmit": true,
 

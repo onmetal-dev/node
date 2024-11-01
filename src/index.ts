@@ -1,10 +1,41 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  Application,
+  ApplicationCreateParams,
+  ApplicationDeleteResponse,
+  ApplicationListResponse,
+  Applications,
+} from './resources/applications';
+import {
+  Environment,
+  EnvironmentCreateParams,
+  EnvironmentListParams,
+  EnvironmentListResponse,
+  Environments,
+} from './resources/environments';
+import {
+  HetznerCluster,
+  HetznerClusterCreateParams,
+  HetznerClusterDeleteResponse,
+  HetznerClusterListResponse,
+  HetznerClusters,
+} from './resources/hetzner-clusters';
+import {
+  HetznerProject,
+  HetznerProjectCreateParams,
+  HetznerProjectDeleteResponse,
+  HetznerProjectListResponse,
+  HetznerProjects,
+} from './resources/hetzner-projects';
+import { Team, TeamListResponse, Teams } from './resources/teams';
+import { Up, UpCreateParams, UpCreateResponse } from './resources/up';
+import { WhoAmI, Whoami } from './resources/whoami';
 
 export interface ClientOptions {
   /**
@@ -163,62 +194,71 @@ export class Metal extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  MetalError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const MetalError = Errors.MetalError;
+export const APIError = Errors.APIError;
+export const APIConnectionError = Errors.APIConnectionError;
+export const APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
+export const APIUserAbortError = Errors.APIUserAbortError;
+export const NotFoundError = Errors.NotFoundError;
+export const ConflictError = Errors.ConflictError;
+export const RateLimitError = Errors.RateLimitError;
+export const BadRequestError = Errors.BadRequestError;
+export const AuthenticationError = Errors.AuthenticationError;
+export const InternalServerError = Errors.InternalServerError;
+export const PermissionDeniedError = Errors.PermissionDeniedError;
+export const UnprocessableEntityError = Errors.UnprocessableEntityError;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Metal {
-  export import RequestOptions = Core.RequestOptions;
+Metal.Whoami = Whoami;
+Metal.HetznerProjects = HetznerProjects;
+Metal.HetznerClusters = HetznerClusters;
+Metal.Applications = Applications;
+Metal.Environments = Environments;
+Metal.Teams = Teams;
+Metal.Up = Up;
 
-  export import Whoami = API.Whoami;
-  export import WhoAmI = API.WhoAmI;
+export declare namespace Metal {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import HetznerProjects = API.HetznerProjects;
-  export import HetznerProject = API.HetznerProject;
-  export import HetznerProjectListResponse = API.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
+  export { Whoami as Whoami, type WhoAmI as WhoAmI };
 
-  export import HetznerClusters = API.HetznerClusters;
-  export import HetznerCluster = API.HetznerCluster;
-  export import HetznerClusterListResponse = API.HetznerClusterListResponse;
-  export import HetznerClusterDeleteResponse = API.HetznerClusterDeleteResponse;
-  export import HetznerClusterCreateParams = API.HetznerClusterCreateParams;
+  export {
+    HetznerProjects as HetznerProjects,
+    type HetznerProject as HetznerProject,
+    type HetznerProjectListResponse as HetznerProjectListResponse,
+    type HetznerProjectDeleteResponse as HetznerProjectDeleteResponse,
+    type HetznerProjectCreateParams as HetznerProjectCreateParams,
+  };
 
-  export import Applications = API.Applications;
-  export import Application = API.Application;
-  export import ApplicationListResponse = API.ApplicationListResponse;
-  export import ApplicationDeleteResponse = API.ApplicationDeleteResponse;
-  export import ApplicationCreateParams = API.ApplicationCreateParams;
+  export {
+    HetznerClusters as HetznerClusters,
+    type HetznerCluster as HetznerCluster,
+    type HetznerClusterListResponse as HetznerClusterListResponse,
+    type HetznerClusterDeleteResponse as HetznerClusterDeleteResponse,
+    type HetznerClusterCreateParams as HetznerClusterCreateParams,
+  };
 
-  export import Environments = API.Environments;
-  export import Environment = API.Environment;
-  export import EnvironmentListResponse = API.EnvironmentListResponse;
-  export import EnvironmentCreateParams = API.EnvironmentCreateParams;
-  export import EnvironmentListParams = API.EnvironmentListParams;
+  export {
+    Applications as Applications,
+    type Application as Application,
+    type ApplicationListResponse as ApplicationListResponse,
+    type ApplicationDeleteResponse as ApplicationDeleteResponse,
+    type ApplicationCreateParams as ApplicationCreateParams,
+  };
 
-  export import Teams = API.Teams;
-  export import Team = API.Team;
-  export import TeamListResponse = API.TeamListResponse;
+  export {
+    Environments as Environments,
+    type Environment as Environment,
+    type EnvironmentListResponse as EnvironmentListResponse,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
+    type EnvironmentListParams as EnvironmentListParams,
+  };
 
-  export import Up = API.Up;
-  export import UpCreateResponse = API.UpCreateResponse;
-  export import UpCreateParams = API.UpCreateParams;
+  export { Teams as Teams, type Team as Team, type TeamListResponse as TeamListResponse };
+
+  export { Up as Up, type UpCreateResponse as UpCreateResponse, type UpCreateParams as UpCreateParams };
 }
 
 export default Metal;
