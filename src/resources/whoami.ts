@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as WhoamiAPI from './whoami';
 
 export class Whoami extends APIResource {
   retrieve(options?: Core.RequestOptions): Core.APIPromise<WhoAmI> {
@@ -54,6 +53,6 @@ export namespace WhoAmI {
   }
 }
 
-export namespace Whoami {
-  export import WhoAmI = WhoamiAPI.WhoAmI;
+export declare namespace Whoami {
+  export { type WhoAmI as WhoAmI };
 }

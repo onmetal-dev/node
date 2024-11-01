@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as UpAPI from './up';
 
 export class Up extends APIResource {
   create(body: UpCreateParams, options?: Core.RequestOptions): Core.APIPromise<string> {
@@ -29,7 +28,6 @@ export interface UpCreateParams {
   teamId: string;
 }
 
-export namespace Up {
-  export import UpCreateResponse = UpAPI.UpCreateResponse;
-  export import UpCreateParams = UpAPI.UpCreateParams;
+export declare namespace Up {
+  export { type UpCreateResponse as UpCreateResponse, type UpCreateParams as UpCreateParams };
 }
