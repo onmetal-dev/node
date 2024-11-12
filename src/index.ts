@@ -194,25 +194,6 @@ export class Metal extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  MetalError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Metal.Whoami = Whoami;
 Metal.HetznerProjects = HetznerProjects;
 Metal.HetznerClusters = HetznerClusters;
@@ -220,7 +201,6 @@ Metal.Applications = Applications;
 Metal.Environments = Environments;
 Metal.Teams = Teams;
 Metal.Up = Up;
-
 export declare namespace Metal {
   export type RequestOptions = Core.RequestOptions;
 
@@ -262,5 +242,22 @@ export declare namespace Metal {
 
   export { Up as Up, type UpCreateResponse as UpCreateResponse, type UpCreateParams as UpCreateParams };
 }
+
+export { toFile, fileFromPath } from '@onmetal/node/uploads';
+export {
+  MetalError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from '@onmetal/node/error';
 
 export default Metal;
