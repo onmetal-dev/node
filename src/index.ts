@@ -243,7 +243,7 @@ export declare namespace Metal {
   export { Up as Up, type UpCreateResponse as UpCreateResponse, type UpCreateParams as UpCreateParams };
 }
 
-export { toFile, fileFromPath } from '@onmetal/node/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   MetalError,
   APIError,
@@ -258,6 +258,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from '@onmetal/node/error';
+} from './error';
 
 export default Metal;
