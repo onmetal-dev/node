@@ -12,11 +12,7 @@ describe('resource hetznerClusters', () => {
   test('create: only required params', async () => {
     const responsePromise = client.hetznerClusters.create('3OHY5rQEfrc1vOpFrJ9q3r', {
       location: 'fsn1',
-      nodeGroups: [
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all' },
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all' },
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all' },
-      ],
+      nodeGroups: [{ instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all' }],
       teamId: 'teamId',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -31,11 +27,7 @@ describe('resource hetznerClusters', () => {
   test('create: required and optional params', async () => {
     const response = await client.hetznerClusters.create('3OHY5rQEfrc1vOpFrJ9q3r', {
       location: 'fsn1',
-      nodeGroups: [
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all', id: 'id' },
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all', id: 'id' },
-        { instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all', id: 'id' },
-      ],
+      nodeGroups: [{ instanceType: 'cax11', maxNodes: 0, minNodes: 0, type: 'all', id: 'id' }],
       teamId: 'teamId',
       id: 'id',
     });
