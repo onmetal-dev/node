@@ -183,7 +183,7 @@ describe('instantiate client', () => {
     expect(client.metalAPIKey).toBe('My Metal API Key');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['METAL_API_KEY'] = 'another My Metal API Key';
     const client = new Metal({ metalAPIKey: 'My Metal API Key' });
