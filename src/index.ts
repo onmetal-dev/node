@@ -1,10 +1,41 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from '@onmetal/node/resources/index';
+import * as API from './resources/index';
+import {
+  Application,
+  ApplicationCreateParams,
+  ApplicationDeleteResponse,
+  ApplicationListResponse,
+  Applications,
+} from './resources/applications';
+import {
+  Environment,
+  EnvironmentCreateParams,
+  EnvironmentListParams,
+  EnvironmentListResponse,
+  Environments,
+} from './resources/environments';
+import {
+  HetznerCluster,
+  HetznerClusterCreateParams,
+  HetznerClusterDeleteResponse,
+  HetznerClusterListResponse,
+  HetznerClusters,
+} from './resources/hetzner-clusters';
+import {
+  HetznerProject,
+  HetznerProjectCreateParams,
+  HetznerProjectDeleteResponse,
+  HetznerProjectListResponse,
+  HetznerProjects,
+} from './resources/hetzner-projects';
+import { Team, TeamListResponse, Teams } from './resources/teams';
+import { Up, UpCreateParams, UpCreateResponse } from './resources/up';
+import { WhoAmI, Whoami } from './resources/whoami';
 
 export interface ClientOptions {
   /**
@@ -26,7 +57,7 @@ export interface ClientOptions {
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
    */
-  timeout?: number;
+  timeout?: number | undefined;
 
   /**
    * An HTTP agent used to manage HTTP(S) connections.
@@ -34,7 +65,7 @@ export interface ClientOptions {
    * If not provided, an agent will be constructed by default in the Node.js environment,
    * otherwise no agent is used.
    */
-  httpAgent?: Agent;
+  httpAgent?: Agent | undefined;
 
   /**
    * Specify a custom `fetch` function implementation.
@@ -50,7 +81,7 @@ export interface ClientOptions {
    *
    * @default 2
    */
-  maxRetries?: number;
+  maxRetries?: number | undefined;
 
   /**
    * Default headers to include with every request to the API.
@@ -58,7 +89,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * header to `undefined` or `null` in request options.
    */
-  defaultHeaders?: Core.Headers;
+  defaultHeaders?: Core.Headers | undefined;
 
   /**
    * Default query parameters to include with every request to the API.
@@ -66,10 +97,12 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * param to `undefined` in request options.
    */
-  defaultQuery?: Core.DefaultQuery;
+  defaultQuery?: Core.DefaultQuery | undefined;
 }
 
-/** API Client for interfacing with the Metal API. */
+/**
+ * API Client for interfacing with the Metal API.
+ */
 export class Metal extends Core.APIClient {
   metalAPIKey: string;
 
@@ -111,6 +144,7 @@ export class Metal extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.metalAPIKey = metalAPIKey;
@@ -140,6 +174,7 @@ export class Metal extends Core.APIClient {
   }
 
   static Metal = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static MetalError = Errors.MetalError;
   static APIError = Errors.APIError;
@@ -159,7 +194,57 @@ export class Metal extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+Metal.Whoami = Whoami;
+Metal.HetznerProjects = HetznerProjects;
+Metal.HetznerClusters = HetznerClusters;
+Metal.Applications = Applications;
+Metal.Environments = Environments;
+Metal.Teams = Teams;
+Metal.Up = Up;
+export declare namespace Metal {
+  export type RequestOptions = Core.RequestOptions;
+
+  export { Whoami as Whoami, type WhoAmI as WhoAmI };
+
+  export {
+    HetznerProjects as HetznerProjects,
+    type HetznerProject as HetznerProject,
+    type HetznerProjectListResponse as HetznerProjectListResponse,
+    type HetznerProjectDeleteResponse as HetznerProjectDeleteResponse,
+    type HetznerProjectCreateParams as HetznerProjectCreateParams,
+  };
+
+  export {
+    HetznerClusters as HetznerClusters,
+    type HetznerCluster as HetznerCluster,
+    type HetznerClusterListResponse as HetznerClusterListResponse,
+    type HetznerClusterDeleteResponse as HetznerClusterDeleteResponse,
+    type HetznerClusterCreateParams as HetznerClusterCreateParams,
+  };
+
+  export {
+    Applications as Applications,
+    type Application as Application,
+    type ApplicationListResponse as ApplicationListResponse,
+    type ApplicationDeleteResponse as ApplicationDeleteResponse,
+    type ApplicationCreateParams as ApplicationCreateParams,
+  };
+
+  export {
+    Environments as Environments,
+    type Environment as Environment,
+    type EnvironmentListResponse as EnvironmentListResponse,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
+    type EnvironmentListParams as EnvironmentListParams,
+  };
+
+  export { Teams as Teams, type Team as Team, type TeamListResponse as TeamListResponse };
+
+  export { Up as Up, type UpCreateResponse as UpCreateResponse, type UpCreateParams as UpCreateParams };
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   MetalError,
   APIError,
   APIConnectionError,
@@ -173,48 +258,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace Metal {
-  export import RequestOptions = Core.RequestOptions;
-
-  export import Whoami = API.Whoami;
-  export import WhoAmI = API.WhoAmI;
-
-  export import HetznerProjects = API.HetznerProjects;
-  export import HetznerProject = API.HetznerProject;
-  export import HetznerProjectListResponse = API.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = API.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = API.HetznerProjectCreateParams;
-
-  export import HetznerClusters = API.HetznerClusters;
-  export import HetznerCluster = API.HetznerCluster;
-  export import HetznerClusterListResponse = API.HetznerClusterListResponse;
-  export import HetznerClusterDeleteResponse = API.HetznerClusterDeleteResponse;
-  export import HetznerClusterCreateParams = API.HetznerClusterCreateParams;
-
-  export import Applications = API.Applications;
-  export import Application = API.Application;
-  export import ApplicationListResponse = API.ApplicationListResponse;
-  export import ApplicationDeleteResponse = API.ApplicationDeleteResponse;
-  export import ApplicationCreateParams = API.ApplicationCreateParams;
-
-  export import Environments = API.Environments;
-  export import Environment = API.Environment;
-  export import EnvironmentListResponse = API.EnvironmentListResponse;
-  export import EnvironmentCreateParams = API.EnvironmentCreateParams;
-  export import EnvironmentListParams = API.EnvironmentListParams;
-
-  export import Teams = API.Teams;
-  export import Team = API.Team;
-  export import TeamListResponse = API.TeamListResponse;
-
-  export import Up = API.Up;
-  export import UpCreateResponse = API.UpCreateResponse;
-  export import UpCreateParams = API.UpCreateParams;
-}
+} from './error';
 
 export default Metal;

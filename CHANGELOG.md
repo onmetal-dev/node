@@ -1,5 +1,49 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-01-22)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Features
+
+* **api:** api update ([#34](https://github.com/onmetal-dev/node/issues/34)) ([9c465f5](https://github.com/onmetal-dev/node/commit/9c465f5c6bddb311df82a9e12e8a46563b062970))
+* **internal:** make git install file structure match npm ([#47](https://github.com/onmetal-dev/node/issues/47)) ([30c9d4b](https://github.com/onmetal-dev/node/commit/30c9d4b1601ee8ade8588f35b82fdcd18788b7f5))
+
+
+### Bug Fixes
+
+* **client:** normalize method ([#54](https://github.com/onmetal-dev/node/issues/54)) ([dcb5f26](https://github.com/onmetal-dev/node/commit/dcb5f26bc6948e9c05515ae0cf5b5a123301cb89))
+
+
+### Chores
+
+* **internal:** bump cross-spawn to v7.0.6 ([#49](https://github.com/onmetal-dev/node/issues/49)) ([32b20ef](https://github.com/onmetal-dev/node/commit/32b20efc8973d0c494fd822254c934440144f169))
+* **internal:** codegen related update ([#51](https://github.com/onmetal-dev/node/issues/51)) ([c9b9b16](https://github.com/onmetal-dev/node/commit/c9b9b1636d93f52cd6101a633b4a659a20a66259))
+* **internal:** codegen related update ([#53](https://github.com/onmetal-dev/node/issues/53)) ([f3df804](https://github.com/onmetal-dev/node/commit/f3df80493cd8ee1a3f5772153e3f878ccbe2fffe))
+* **internal:** codegen related update ([#56](https://github.com/onmetal-dev/node/issues/56)) ([cc114c8](https://github.com/onmetal-dev/node/commit/cc114c8a34381c5fb01bac084ecd21366150784d))
+* **internal:** codegen related update ([#57](https://github.com/onmetal-dev/node/issues/57)) ([fa87036](https://github.com/onmetal-dev/node/commit/fa87036b6eb85b8e12e5fb4b45bd977f7b85df23))
+* **internal:** codegen related update ([#58](https://github.com/onmetal-dev/node/issues/58)) ([5e4d26c](https://github.com/onmetal-dev/node/commit/5e4d26cd8e33de69fe5ed2ed998d9faa4229a336))
+* **internal:** codegen related update ([#59](https://github.com/onmetal-dev/node/issues/59)) ([5f9dec2](https://github.com/onmetal-dev/node/commit/5f9dec281567a26a0363d53d0ec5aff1d12327f3))
+* **internal:** fix some typos ([#52](https://github.com/onmetal-dev/node/issues/52)) ([f5f055b](https://github.com/onmetal-dev/node/commit/f5f055bca2cb8a4f6368856f6bc36ff26d49911d))
+* **internal:** remove unnecessary getRequestClient function ([#48](https://github.com/onmetal-dev/node/issues/48)) ([98e4580](https://github.com/onmetal-dev/node/commit/98e45808daf02cb4bea6b07b3e6167a5d44097e4))
+* rebuild project due to codegen change ([#36](https://github.com/onmetal-dev/node/issues/36)) ([6b26539](https://github.com/onmetal-dev/node/commit/6b26539bbaa6663367e712ee13b4e71ae88d0884))
+* rebuild project due to codegen change ([#37](https://github.com/onmetal-dev/node/issues/37)) ([da783df](https://github.com/onmetal-dev/node/commit/da783df2f04d2085c0778d62a2ef6e6398fdb171))
+* rebuild project due to codegen change ([#38](https://github.com/onmetal-dev/node/issues/38)) ([871fb69](https://github.com/onmetal-dev/node/commit/871fb6945a332573acd3af5a2caa7d0c10aeb36d))
+* rebuild project due to codegen change ([#39](https://github.com/onmetal-dev/node/issues/39)) ([aa0b65f](https://github.com/onmetal-dev/node/commit/aa0b65f1dac8d83f682c425b227e64ff3f79eda8))
+* rebuild project due to codegen change ([#40](https://github.com/onmetal-dev/node/issues/40)) ([b62acfe](https://github.com/onmetal-dev/node/commit/b62acfe5abc9c3a8ef857518efdb4ff058b45c76))
+* rebuild project due to codegen change ([#41](https://github.com/onmetal-dev/node/issues/41)) ([dcfcd30](https://github.com/onmetal-dev/node/commit/dcfcd307b4d6a7d3cdf7364d03710afd081df4ea))
+* rebuild project due to codegen change ([#42](https://github.com/onmetal-dev/node/issues/42)) ([0fb22bc](https://github.com/onmetal-dev/node/commit/0fb22bc52885752a80be3b94481a464b4717a4fa))
+* rebuild project due to codegen change ([#43](https://github.com/onmetal-dev/node/issues/43)) ([9094c23](https://github.com/onmetal-dev/node/commit/9094c232945582eb441ff63ed443e6a08031fca6))
+* rebuild project due to codegen change ([#44](https://github.com/onmetal-dev/node/issues/44)) ([dc86e56](https://github.com/onmetal-dev/node/commit/dc86e56c225c71a2dd43eca0eb2d2e71ff1969de))
+* remove redundant word in comment ([#46](https://github.com/onmetal-dev/node/issues/46)) ([82a186f](https://github.com/onmetal-dev/node/commit/82a186ff7f080da77c3b1a988539e50162dccc64))
+* **types:** nicer error class types + jsdocs ([#50](https://github.com/onmetal-dev/node/issues/50)) ([a054ac4](https://github.com/onmetal-dev/node/commit/a054ac43dcd333a74df1afe40aebb2132327fee0))
+
+
+### Documentation
+
+* minor formatting changes ([#55](https://github.com/onmetal-dev/node/issues/55)) ([3abd3d4](https://github.com/onmetal-dev/node/commit/3abd3d4ac9cdb8452e9879081ccb91019295a4a2))
+* remove suggestion to use `npm` call out ([#45](https://github.com/onmetal-dev/node/issues/45)) ([92d2dc6](https://github.com/onmetal-dev/node/commit/92d2dc6be29306efc4c7fc67ea2b26818ce4363d))
+
 ## 0.1.0-alpha.10 (2024-06-07)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/onmetal-dev/node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)

@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Metal REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on docs.metal.com](https://docs.metal.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.metal.com](https://docs.metal.com). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -22,12 +22,12 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Metal from '@onmetal/node';
 
-const metal = new Metal({
+const client = new Metal({
   metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
-  const whoAmI = await metal.whoami.retrieve();
+  const whoAmI = await client.whoami.retrieve();
 
   console.log(whoAmI.token);
 }
@@ -43,12 +43,12 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Metal from '@onmetal/node';
 
-const metal = new Metal({
+const client = new Metal({
   metalAPIKey: process.env['METAL_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
-  const whoAmI: Metal.WhoAmI = await metal.whoami.retrieve();
+  const whoAmI: Metal.WhoAmI = await client.whoami.retrieve();
 }
 
 main();
@@ -65,7 +65,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const whoAmI = await metal.whoami.retrieve().catch(async (err) => {
+  const whoAmI = await client.whoami.retrieve().catch(async (err) => {
     if (err instanceof Metal.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -103,12 +103,12 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const metal = new Metal({
+const client = new Metal({
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await metal.whoami.retrieve({
+await client.whoami.retrieve({
   maxRetries: 5,
 });
 ```
@@ -120,12 +120,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const metal = new Metal({
+const client = new Metal({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await metal.whoami.retrieve({
+await client.whoami.retrieve({
   timeout: 5 * 1000,
 });
 ```
@@ -144,13 +144,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const metal = new Metal();
+const client = new Metal();
 
-const response = await metal.whoami.retrieve().asResponse();
+const response = await client.whoami.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: whoAmI, response: raw } = await metal.whoami.retrieve().withResponse();
+const { data: whoAmI, response: raw } = await client.whoami.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(whoAmI.token);
 ```
@@ -251,12 +251,12 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const metal = new Metal({
+const client = new Metal({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
 // Override per-request:
-await metal.whoami.retrieve({
+await client.whoami.retrieve({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
@@ -266,7 +266,7 @@ await metal.whoami.retrieve({
 This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
 
 1. Changes that only affect static types, without breaking runtime behavior.
-2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.
+2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals.)_
 3. Changes that we do not expect to impact the vast majority of users in practice.
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
@@ -279,8 +279,9 @@ TypeScript >= 4.5 is supported.
 
 The following runtimes are supported:
 
+- Web browsers (Up-to-date Chrome, Firefox, Safari, Edge, and more)
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Metal from "npm:@onmetal/node"`.
+- Deno v1.28.0 or higher.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.
@@ -290,3 +291,7 @@ The following runtimes are supported:
 Note that React Native is not supported at this time.
 
 If you are interested in other runtime environments, please open or upvote an issue on GitHub.
+
+## Contributing
+
+See [the contributing documentation](./CONTRIBUTING.md).

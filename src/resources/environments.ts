@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import { isRequestOptions } from '@onmetal/node/core';
-import * as EnvironmentsAPI from '@onmetal/node/resources/environments';
+import { APIResource } from '../resource';
+import { isRequestOptions } from '../core';
+import * as Core from '../core';
 
 export class Environments extends APIResource {
   create(
@@ -63,9 +62,11 @@ export interface EnvironmentListParams {
   teamId?: string | null;
 }
 
-export namespace Environments {
-  export import Environment = EnvironmentsAPI.Environment;
-  export import EnvironmentListResponse = EnvironmentsAPI.EnvironmentListResponse;
-  export import EnvironmentCreateParams = EnvironmentsAPI.EnvironmentCreateParams;
-  export import EnvironmentListParams = EnvironmentsAPI.EnvironmentListParams;
+export declare namespace Environments {
+  export {
+    type Environment as Environment,
+    type EnvironmentListResponse as EnvironmentListResponse,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
+    type EnvironmentListParams as EnvironmentListParams,
+  };
 }

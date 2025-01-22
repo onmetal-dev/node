@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as WhoamiAPI from '@onmetal/node/resources/whoami';
+import { APIResource } from '../resource';
+import * as Core from '../core';
 
 export class Whoami extends APIResource {
   retrieve(options?: Core.RequestOptions): Core.APIPromise<WhoAmI> {
@@ -54,6 +53,6 @@ export namespace WhoAmI {
   }
 }
 
-export namespace Whoami {
-  export import WhoAmI = WhoamiAPI.WhoAmI;
+export declare namespace Whoami {
+  export { type WhoAmI as WhoAmI };
 }

@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as HetznerClustersAPI from '@onmetal/node/resources/hetzner-clusters';
+import { APIResource } from '../resource';
+import * as Core from '../core';
 
 export class HetznerClusters extends APIResource {
   create(
@@ -106,9 +105,11 @@ export namespace HetznerClusterCreateParams {
   }
 }
 
-export namespace HetznerClusters {
-  export import HetznerCluster = HetznerClustersAPI.HetznerCluster;
-  export import HetznerClusterListResponse = HetznerClustersAPI.HetznerClusterListResponse;
-  export import HetznerClusterDeleteResponse = HetznerClustersAPI.HetznerClusterDeleteResponse;
-  export import HetznerClusterCreateParams = HetznerClustersAPI.HetznerClusterCreateParams;
+export declare namespace HetznerClusters {
+  export {
+    type HetznerCluster as HetznerCluster,
+    type HetznerClusterListResponse as HetznerClusterListResponse,
+    type HetznerClusterDeleteResponse as HetznerClusterDeleteResponse,
+    type HetznerClusterCreateParams as HetznerClusterCreateParams,
+  };
 }

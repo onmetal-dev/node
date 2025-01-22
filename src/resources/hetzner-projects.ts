@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@onmetal/node/core';
-import { APIResource } from '@onmetal/node/resource';
-import * as HetznerProjectsAPI from '@onmetal/node/resources/hetzner-projects';
+import { APIResource } from '../resource';
+import * as Core from '../core';
 
 export class HetznerProjects extends APIResource {
   create(
@@ -78,9 +77,11 @@ export interface HetznerProjectCreateParams {
   sshKeyName?: string | null;
 }
 
-export namespace HetznerProjects {
-  export import HetznerProject = HetznerProjectsAPI.HetznerProject;
-  export import HetznerProjectListResponse = HetznerProjectsAPI.HetznerProjectListResponse;
-  export import HetznerProjectDeleteResponse = HetznerProjectsAPI.HetznerProjectDeleteResponse;
-  export import HetznerProjectCreateParams = HetznerProjectsAPI.HetznerProjectCreateParams;
+export declare namespace HetznerProjects {
+  export {
+    type HetznerProject as HetznerProject,
+    type HetznerProjectListResponse as HetznerProjectListResponse,
+    type HetznerProjectDeleteResponse as HetznerProjectDeleteResponse,
+    type HetznerProjectCreateParams as HetznerProjectCreateParams,
+  };
 }

@@ -3,16 +3,16 @@
 import Metal from '@onmetal/node';
 import { Response } from 'node-fetch';
 
-const metal = new Metal({
+const client = new Metal({
   metalAPIKey: 'My Metal API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource environments', () => {
   test('create: only required params', async () => {
-    const responsePromise = metal.environments.create('3OHY5rQEfrc1vOpFrJ9q3r', {
-      name: 'string',
-      teamId: 'string',
+    const responsePromise = client.environments.create('3OHY5rQEfrc1vOpFrJ9q3r', {
+      name: 'name',
+      teamId: 'teamId',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -24,15 +24,15 @@ describe('resource environments', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await metal.environments.create('3OHY5rQEfrc1vOpFrJ9q3r', {
-      name: 'string',
-      teamId: 'string',
-      id: 'string',
+    const response = await client.environments.create('3OHY5rQEfrc1vOpFrJ9q3r', {
+      name: 'name',
+      teamId: 'teamId',
+      id: 'id',
     });
   });
 
   test('retrieve', async () => {
-    const responsePromise = metal.environments.retrieve('3OHY5rQEfrc1vOpFrJ9q3r');
+    const responsePromise = client.environments.retrieve('3OHY5rQEfrc1vOpFrJ9q3r');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -45,12 +45,12 @@ describe('resource environments', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      metal.environments.retrieve('3OHY5rQEfrc1vOpFrJ9q3r', { path: '/_stainless_unknown_path' }),
+      client.environments.retrieve('3OHY5rQEfrc1vOpFrJ9q3r', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Metal.NotFoundError);
   });
 
   test('list', async () => {
-    const responsePromise = metal.environments.list();
+    const responsePromise = client.environments.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -62,7 +62,7 @@ describe('resource environments', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(metal.environments.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.environments.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Metal.NotFoundError,
     );
   });
@@ -70,7 +70,7 @@ describe('resource environments', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      metal.environments.list({ teamId: 'xxxxxxxxxxxxxxxxxxxxxx' }, { path: '/_stainless_unknown_path' }),
+      client.environments.list({ teamId: 'xxxxxxxxxxxxxxxxxxxxxx' }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Metal.NotFoundError);
   });
 });
